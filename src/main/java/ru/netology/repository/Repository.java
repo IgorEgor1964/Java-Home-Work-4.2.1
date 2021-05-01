@@ -1,34 +1,34 @@
 package ru.netology.repository;
 
-import ru.netology.domain.FlightTickets;
+import ru.netology.domain.FlightTicket;
 
 public class Repository {
-    private FlightTickets[] flightTickets = new FlightTickets[0];
+    private FlightTicket[] flightTicket = new FlightTicket[0];
 
-    public FlightTickets[] findAll() {
-        return flightTickets;
+    public FlightTicket[] findAll() {
+        return flightTicket;
     }
 
-    public void save(FlightTickets flyTickets) {
-        int length = flightTickets.length + 1;
-        FlightTickets[] tmp = new FlightTickets[length];
-        System.arraycopy(flightTickets, 0, tmp, 0, flightTickets.length);
+    public void save(FlightTicket flyTicket) {
+        int length = flightTicket.length + 1;
+        FlightTicket[] tmp = new FlightTicket[length];
+        System.arraycopy(flightTicket, 0, tmp, 0, flightTicket.length);
         int lastIndex = tmp.length - 1;
-        tmp[lastIndex] = flyTickets;
-        flightTickets = tmp;
+        tmp[lastIndex] = flyTicket;
+        flightTicket = tmp;
     }
 
     public void removeById(int id) {
-        int length = flightTickets.length - 1;
-        FlightTickets[] tmp = new FlightTickets[length];
+        int length = flightTicket.length - 1;
+        FlightTicket[] tmp = new FlightTicket[length];
         int index = 0;
-        for (FlightTickets FlightTickets : flightTickets) {
-            if (FlightTickets.getId() != id) {
-                tmp[index] = FlightTickets;
+        for (FlightTicket FlightTicket : flightTicket) {
+            if (FlightTicket.getId() != id) {
+                tmp[index] = FlightTicket;
                 index++;
             }
         }
-        flightTickets = tmp;
+        flightTicket = tmp;
     }
 
 }
